@@ -36,23 +36,35 @@
     <p>Telefono:<input type="text" id="telefono" name="telefono" size="28"></p>
     <p>Direccion:<input type="text" id="direccion" name="direccion" size="30"></p>
     <p>Colonia:<input type="text" id="colonia" name="colonia" size="30"></p>
+<br>
+<select name="menu" id="menu">
+    <option value="hamburguesa">Hamburguesa</option>
+    <option value="tacos">Tacos</option>
+</select>
+    <title> VERDURAS </title>
+    <p>Vegetales:
+        <input type="checkbox" id="tomate"><label for="tomate">Tomate</label>
+        <input type="checkbox" id="cebolla"><label for="cebolla">Cebolla</label>
+        <input type="checkbox" id="lechuga"><label for="lechuga">Lechuga</label>
+        <input type="checkbox" id="pepinos"><label for="pepinos">Pepinos</label>
+    </p>
 
     <input type="submit" value="Enviar">
     <input type="reset" value="Borrar">
 </form>
 <script>
     const form=document.getElementById("pedido");
-    form.addEventListener("submit", function{event}{
+    form.addEventListener("submit", function(event){
         event.preventDefault();
-        const formData(form)
+        const formData=new FormData(form);
         const orden={
-            nombre: formData.get("nombre");
-            apellido: formData.get("apellido");
-            telefono: formData.get("telefono");
-            direccion: formData.get("direccion");
-            colonia: formData.get("colonia");
+            nombre:FormData.get("nombre");
+            apellido:FormData.get("apellido");
+            telefono:FormData.get("telefono");
+            direccion:FormData.get("direccion");
+            colonia:FormData.get("colonia");
         };
-        localStorage.setItem{"orden", JSON.stingify(orden)};
+        localStorage.setItem("orden", JSON.stringify(orden));
         window.location.href="pedidorealizado.html";
     });
 </script>
