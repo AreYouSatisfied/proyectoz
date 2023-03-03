@@ -37,9 +37,12 @@
     <p>Direccion:<input type="text" id="direccion" name="direccion" size="30"></p>
     <p>Colonia:<input type="text" id="colonia" name="colonia" size="30"></p>
 <br>
-<select name="menu" id="menu">
+<select name="menu" id="menu">     
     <option value="hamburguesa">Hamburguesa</option>
     <option value="tacos">Tacos</option>
+    <option value="enchiladas">Enchiladas</option>
+    <option value="pastel">Pastel</option>
+    <option value="aguasf">Aguas Frescas</option>
 </select>
     <title> VERDURAS </title>
     <p>Vegetales:
@@ -49,21 +52,29 @@
         <input type="checkbox" id="pepinos"><label for="pepinos">Pepinos</label>
     </p>
 
+    <title> PASTEL </title>
+    <p>Pastel Tipo:
+        <input type="checkbox" id="chocolate"><label for="chocolate">Chocolate</label>
+        <input type="checkbox" id="vainilla"><label for="vainilla">Vainilla</label>
+        <input type="checkbox" id="tresl"><label for="tresl">Tres Leches</label>
+        <input type="checkbox" id="pays"><label for="pays">Pays</label>
+    </p>
+
     <input type="submit" value="Enviar">
     <input type="reset" value="Borrar">
 </form>
 <script>
     const form=document.getElementById("pedido");
-    form.addEventListener("submit", function(event){
+    form.addEventListener ("submit", function(event){
         event.preventDefault();
         const formData=new FormData(form);
         const orden={
-            nombre:FormData.get("nombre");
-            apellido:FormData.get("apellido");
-            telefono:FormData.get("telefono");
-            direccion:FormData.get("direccion");
-            colonia:FormData.get("colonia");
-        };
+            nombre:formData.get("nombre"),
+            apellido:formData.get("apellido"),
+            telefono:formData.get("telefono"),
+            direccion:formData.get("direccion"),
+            colonia:formData.get("colonia"),
+         };
         localStorage.setItem("orden", JSON.stringify(orden));
         window.location.href="pedidorealizado.html";
     });
